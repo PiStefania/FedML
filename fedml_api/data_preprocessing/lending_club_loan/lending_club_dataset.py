@@ -120,6 +120,7 @@ def process_data(loan_df):
     norm_loan_feat_df = normalize_df(loan_feat_df)
     loan_target_df = loan_df[['target']]
     processed_loan_df = pd.concat([norm_loan_feat_df, loan_target_df], axis=1)
+    processed_loan_df = processed_loan_df.dropna()
     return processed_loan_df
 
 
