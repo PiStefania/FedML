@@ -39,11 +39,11 @@ fi
 
 # FROM README
 ## MNIST
-#sh run_fedavg_standalone_pytorch.sh 0 1000 10 10 mnist ./../../../data/mnist lr hetero 200 1 0.03 sgd 0 > ./logs/fedavg_standalone_mnist_logs.txt 2>&1
+sh run_fedavg_standalone_pytorch.sh 0 1000 10 10 mnist ./../../../data/mnist lr hetero 200 1 0.03 sgd 0 > ./logs/fedavg_standalone_mnist_logs.txt 2>&1
 ## shakespeare (LEAF)
-#sh run_fedavg_standalone_pytorch.sh 0 10 10 10 shakespeare ./../../../data/shakespeare rnn hetero 100 1 0.8 sgd 0 > ./logs/fedavg_standalone_shakespeare_logs.txt 2>&1
+sh run_fedavg_standalone_pytorch.sh 0 10 10 10 shakespeare ./../../../data/shakespeare rnn hetero 100 1 0.8 sgd 0 > ./logs/fedavg_standalone_shakespeare_logs.txt 2>&1
 # fed_shakespeare (Google)
-#sh run_fedavg_standalone_pytorch.sh 0 10 10 10 fed_shakespeare ./../../../data/fed_shakespeare/datasets rnn hetero 1000 1 0.8 sgd 0 > ./logs/fedavg_standalone_fed_shakespeare_logs.txt 2>&1
+sh run_fedavg_standalone_pytorch.sh 0 10 10 10 fed_shakespeare ./../../../data/fed_shakespeare/datasets rnn hetero 1000 1 0.8 sgd 0 > ./logs/fedavg_standalone_fed_shakespeare_logs.txt 2>&1
 ## Federated EMNIST 
 sh run_fedavg_standalone_pytorch.sh 0 10 10 20 femnist ./../../../data/FederatedEMNIST/datasets cnn hetero 1000 1 0.03 sgd 0 > ./logs/fedavg_standalone_fed_emnist_logs.txt 2>&1
 ## Fed_CIFAR100
