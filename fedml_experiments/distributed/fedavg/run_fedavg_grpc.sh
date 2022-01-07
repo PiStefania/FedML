@@ -37,8 +37,6 @@ unset http_proxy
 unset https_proxy
 
 python3 ./main_fedavg_rpc.py \
-  --gpu_mapping_file "gpu_mapping.yaml" \
-  --gpu_mapping_key $GPU_MAPPING \
   --model $MODEL \
   --dataset $DATASET \
   --data_dir $DATA_DIR \

@@ -13,8 +13,8 @@ import torch
 import wandb
 
 # add the FedML root directory to the python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../../../")))
-sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../../")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "./../../../../")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "./../../../")))
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "")))
 from fedml_api.distributed.utils.gpu_mapping import mapping_processes_to_gpu_device_from_yaml_file
@@ -103,11 +103,11 @@ def add_args(parser):
     parser.add_argument('--gpu_num_per_server', type=int, default=4,
                         help='gpu_num_per_server')
 
-    parser.add_argument('--gpu_mapping_file', type=str, default="gpu_mapping.yaml",
+    parser.add_argument('--gpu_mapping_file', type=str, default=None,
                         help='the gpu utilization file for servers and clients. If there is no \
                         gpu_util_file, gpu will not be used.')
 
-    parser.add_argument('--gpu_mapping_key', type=str, default="mapping_default",
+    parser.add_argument('--gpu_mapping_key', type=str, default=None,
                         help='the key in gpu utilization file')
 
     parser.add_argument('--grpc_ipconfig_path', type=str, default="grpc_ipconfig.csv",
