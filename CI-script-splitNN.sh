@@ -35,4 +35,4 @@ then
 fi
 
 # Run splitNN with default parameters and without GPU
-python3 main_split_nn.py --gpu_server_num 0 --gpu_num_per_server 0 > ./logs/split_nn_logs.txt 2>&1
+mpirun -np 12 -hostfile ./mpi_host_file python3 main_split_nn.py --client_number 3 --gpu_server_num 0 --gpu_num_per_server 0 > ./logs/split_nn_logs.txt 2>&1
