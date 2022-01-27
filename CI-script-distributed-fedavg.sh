@@ -20,4 +20,4 @@ then
 fi
 
 ## Run MNIST with multiple processes
-sh run_fedavg_distributed_pytorch.sh 1000 2 lr hetero 200 1 4 0.03 mnist "./../../../data/mnist" sgd 0 > ./logs/fedavg_distributed_mnist_logs.txt 2>&1
+sh run_fedavg_distributed_pytorch.sh 2 2 10 mnist ./../../../data/mnist lr hetero 200 1 0.03 sgd 0 > ./logs/fedavg_distributed_mnist_logs.txt 2>&1
