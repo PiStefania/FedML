@@ -41,6 +41,7 @@ data/MNIST/test
 data/shakespeare/train
 data/shakespeare/test
 data/stackoverflow/datasets
+data/*
 
 # android
 .gradle
@@ -49,7 +50,7 @@ fedml_mobile/android/app/build
 fedml_mobile/android/fedml-iot-sdk/build
 fedml_mobile/android/build
 
-mimiconda.sh
+miniconda.sh
 
 
 data/fednlp/*
