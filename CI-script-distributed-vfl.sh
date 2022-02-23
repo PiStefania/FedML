@@ -45,6 +45,6 @@ then
 fi
 
 ## Lending club load
-sh run_vfl_distributed_pytorch.sh lending_club_loan > ./logs/lending_club_logs.txt 2>&1
+#sh run_vfl_distributed_pytorch.sh lending_club_loan > ./logs/lending_club_logs.txt 2>&1
 ## NUS WIDE
-#python3 run_vfl_fc_two_party_nus_wide.py NUS_WIDE > ./logs/nus_wide_logs.txt 2>&1
+sh run_vfl_distributed_pytorch.sh NUS_WIDE > ./logs/nus_wide_logs.txt 2>&1
