@@ -2,6 +2,7 @@ import os
 import sys
 
 from sklearn.utils import shuffle
+from pympler import asizeof
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 
@@ -60,6 +61,8 @@ if __name__ == '__main__':
     data_dir = "../../../data/NUS_WIDE"
     class_lbls = ['person', 'animal']
     train, test = NUS_WIDE_load_two_party_data(data_dir, class_lbls, neg_label=0)
+    print("size of train dataset " + str(asizeof.asizeof(train)))
+    print("size of test dataset " + str(asizeof.asizeof(test)))
     Xa_train, Xb_train, y_train = train
     Xa_test, Xb_test, y_test = test
 
@@ -72,3 +75,4 @@ if __name__ == '__main__':
     train = [Xa_train, Xb_train, y_train]
     test = [Xa_test, Xb_test, y_test]
     run_experiment(train_data=train, test_data=test, batch_size=batch_size, learning_rate=lr, epoch=epoch)
+    

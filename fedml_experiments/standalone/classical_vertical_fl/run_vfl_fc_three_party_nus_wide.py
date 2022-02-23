@@ -2,6 +2,8 @@ import os
 import sys
 
 from sklearn.utils import shuffle
+from pympler import asizeof
+
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 from fedml_api.data_preprocessing.NUS_WIDE.nus_wide_dataset import NUS_WIDE_load_three_party_data
@@ -57,6 +59,8 @@ if __name__ == '__main__':
     data_dir = "../../../data/NUS_WIDE"
     class_lbls = ['person', 'animal']
     train, test = NUS_WIDE_load_three_party_data(data_dir, class_lbls, neg_label=0)
+    print("size of train dataset " + str(asizeof.asizeof(train)))
+    print("size of test dataset " + str(asizeof.asizeof(test)))
     Xa_train, Xb_train, Xc_train, y_train = train
     Xa_test, Xb_test, Xc_test, y_test = test
 
