@@ -19,17 +19,17 @@ CLIENT_NUM_PER_ROUND=2
 GPU_MAPPING="mapping_FedML_gRPC"
 
 # dataset related
-DATASET=mnist
-DATA_DIR="./../../../data/MNIST"
-DISTRIBUTION=hetero
+DATASET=${2}
+DATA_DIR=${3}
+DISTRIBUTION=${4}
 
 # model and training related
-MODEL=lr
-ROUND=50
-EPOCH=2
-BATCH_SIZE=32
-LR=0.01
-CLIENT_OPTIMIZER=adam
+MODEL=${5}
+ROUND=${6}
+EPOCH=${7}
+BATCH_SIZE=${8}
+LR=${9}
+CLIENT_OPTIMIZER=${10}
 
 hostname > mpi_host_file
 
