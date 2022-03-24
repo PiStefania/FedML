@@ -8,6 +8,9 @@ import numpy as np
 import torch
 import wandb
 
+from torchinfo import summary
+
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 
 from fedml_api.data_preprocessing.cifar10.data_loader import load_partition_data_cifar10
@@ -308,6 +311,7 @@ if __name__ == "__main__":
     # Note if the model is DNN (e.g., ResNet), the training will be very slow.
     # In this case, please use our FedML distributed version (./fedml_experiments/distributed_fedavg)
     model = create_model(args, model_name=args.model, output_dim=dataset[7])
+    logger.info(str(summary(model)))
     model_trainer = custom_model_trainer(args, model)
     logging.info(model)
 

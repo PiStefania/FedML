@@ -3,7 +3,7 @@ import sys
 
 from sklearn.utils import shuffle
 from pympler import asizeof
-
+from torchinfo import summary
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 from fedml_api.data_preprocessing.NUS_WIDE.nus_wide_dataset import NUS_WIDE_load_three_party_data
@@ -34,6 +34,9 @@ def run_experiment(train_data, test_data, batch_size, learning_rate, epoch):
     partyB.set_dense_model(party_b_dense_model)
     partyC = VFLHostModel(local_model=party_c_local_model)
     partyC.set_dense_model(party_c_dense_model)
+    print(summary(party_a_dense_model))
+    print(summary(party_b_dense_model))
+    print(summary(party_c_dense_model))
 
     party_B_id = "B"
     party_C_id = "C"

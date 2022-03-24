@@ -20,5 +20,5 @@ then
 fi
 
 ## Run MNIST with multiple processes
-sh run_fedavg_grpc.sh 0 mnist ./../../../data/mnist hetero lr 50 2 32 0.01 adam > ./logs/fedavg_distributed_mnist_logs_grpc_0.txt 2>&1
+#sh run_fedavg_grpc.sh 0 mnist ./../../../data/mnist hetero lr 50 2 32 0.01 adam > ./logs/fedavg_distributed_mnist_logs_grpc_0.txt 2>&1
 sh run_fedavg_grpc.sh 0 femnist ./../../../data/FederatedEMNIST/datasets hetero cnn 50 2 20 0.03 sgd > ./logs/fedavg_distributed_femnist_logs_grpc_0.txt 2>&1

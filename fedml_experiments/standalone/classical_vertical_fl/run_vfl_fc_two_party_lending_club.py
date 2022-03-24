@@ -2,6 +2,7 @@ import os
 import sys
 
 from sklearn.utils import shuffle
+from torchinfo import summary
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 from fedml_api.data_preprocessing.lending_club_loan.lending_club_dataset import loan_load_two_party_data
@@ -42,6 +43,7 @@ def run_experiment(train_data, test_data, batch_size, learning_rate, epoch):
     print("################################ Train Federated Models ############################")
 
     fl_fixture = FederatedLearningFixture(federatedLearning)
+    print(summary(fl_fixture))
 
     # only party A has labels (i.e., Y), other parties only have features (e.g., X).
     # 'party_list' stores X for all other parties.

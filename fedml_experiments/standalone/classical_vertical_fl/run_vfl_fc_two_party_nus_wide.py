@@ -3,6 +3,7 @@ import sys
 
 from sklearn.utils import shuffle
 from pympler import asizeof
+from torchinfo import summary
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 
@@ -35,6 +36,8 @@ def run_experiment(train_data, test_data, batch_size, learning_rate, epoch):
     partyA.set_dense_model(party_a_dense_model)
     partyB = VFLHostModel(local_model=party_b_local_model)
     partyB.set_dense_model(party_b_dense_model)
+    print(summary(party_a_dense_model))
+    print(summary(party_b_dense_model))
 
     party_B_id = "B"
     federatedLearning = VerticalMultiplePartyLogisticRegressionFederatedLearning(partyA)

@@ -7,6 +7,7 @@ import numpy as np
 import setproctitle
 import torch
 import torch.nn as nn
+from torchinfo import summary
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "../../../")))
 
@@ -131,12 +132,16 @@ if __name__ == "__main__":
     elif args.model == "resnet56":
         model = resnet56(class_num=class_num)
 
+    logging.info(str(summary(model)))
+
     fc_features = model.fc.in_features
     model.fc = nn.Sequential(nn.Flatten(),
                              nn.Linear(fc_features, class_num))
     # Split The model
     client_model = nn.Sequential(*nn.ModuleList(model.children())[:split_layer])
     server_model = nn.Sequential(*nn.ModuleList(model.children())[split_layer:])
+    logging.info(str(summary(client_model)))
+    logging.info(str(summary(server_model)))
 
     SplitNN_distributed(process_id, worker_number, device, comm,
                         client_model, server_model, train_data_num,
